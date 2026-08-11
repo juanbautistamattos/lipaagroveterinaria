@@ -103,6 +103,103 @@ h2{font-size:clamp(1.8rem,3.6vw,2.4rem);color:var(--ink);margin-bottom:16px}
 .faq-a p{padding-bottom:18px;color:#4a4030;font-size:.92rem}
 .faq-item.open .faq-a{max-height:200px}
 
+/* ANIMACIONES DE DINAMISMO */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(183, 143, 84, 0.1);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(183, 143, 84, 0.25);
+  }
+}
+
+.review-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.review-card2 {
+  animation: fadeInUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, glow 3s ease-in-out infinite;
+  flex: 0 0 calc(33.333% - 14px);
+  min-height: 200px;
+}
+
+.review-card2:nth-child(1) {
+  animation-delay: 0.1s, 0s;
+}
+
+.review-card2:nth-child(2) {
+  animation-delay: 0.3s, 0.1s;
+}
+
+.review-card2:nth-child(3) {
+  animation-delay: 0.5s, 0.2s;
+}
+
+.review-card2:nth-child(4) {
+  animation-delay: 0.7s, 0.3s;
+}
+
+.review-card2:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(183, 143, 84, 0.3);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.review-stars {
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.review-card2 p {
+  animation: fadeInUp 0.7s ease-out 0.4s backwards;
+}
+
+.review-author {
+  animation: slideInLeft 0.7s ease-out 0.5s backwards;
+}
+
+.reviews-head h2 {
+  animation: slideInLeft 0.8s ease-out 0.2s backwards;
+}
+
 /* INFO / CONTACT */
 .info{background:var(--wheat)}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
@@ -201,7 +298,7 @@ footer.site-footer{background:var(--charcoal);border-top:1px solid rgba(255,255,
         <span class="stars">★★★★★</span>
         <span style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:600">4,8</span>
       </div>
-      <div class="eyebrow" style="text-align:center">27 opiniones</div>
+
       <h2>La confianza de nuestros clientes</h2>
     </div>
     <div class="review-scroll">
@@ -220,8 +317,13 @@ footer.site-footer{background:var(--charcoal);border-top:1px solid rgba(255,255,
         <p>Buenos precios, buena atención al público y experiencia práctica en el rubro.</p>
         <div class="review-author">Juan Despaux</div>
       </div>
+      <div class="review-card2">
+        <div class="review-stars">★★★★★</div>
+        <p>Excelente servicio y productos, dinamismo a las letras.</p>
+        <div class="review-author"><a href="https://www.google.com/maps/contrib/116219234359360699792/reviews?hl=es-419" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--ochre-dark);">Diego M</a></div>
+      </div>
     </div>
-    <div class="review-scroll-hint">← deslizá para ver más →</div>
+
     <div style="text-align:center;margin-top:1.5rem">
       <a href="https://www.google.com/maps/place/Agroveterinaria+Lipa" target="_blank" style="color:var(--ochre-dark);font-weight:700;font-size:.9rem;border-bottom:1px solid var(--ochre-dark);padding-bottom:2px">Ver todas las opiniones en Google →</a>
     </div>
